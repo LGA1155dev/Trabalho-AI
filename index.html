@@ -11,8 +11,18 @@
         @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&family=Share+Tech+Mono&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
         
 
+        @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&family=Share+Tech+Mono&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Audiowide&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&family=Share+Tech+Mono&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        :root{
+            --font-ai: "Orbitron";
+            --font-text: "Poppins";
+            --font-ai2: "Audiowide"
+        }
+
         body{
-            background-image: url('imagens/PurpleGradient.jpg');
+            background-image: url('imagens/city.webp');
             background-size: cover;
             background-attachment: fixed;
             height: 100vh;
@@ -28,6 +38,7 @@
         }
 
         a{
+            font-family: var(--font-ai);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -39,42 +50,55 @@
         
 
         section > h1{
-            font-family: "Poppins";
-            color:  white;
+            font-family: var(--font-ai2);
+            color:  #ffffff;
             font-size: 2.7rem;
             display: flex;
             flex-flow: column wrap;
         }
 
         section{
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: row wrap;
             padding: 20px;
             margin-top: 50px;
         }
 
+        #secao-principal{
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: row;
+            align-items: flex-start;
+        }
+
         section > p{
             color: white;
-            padding: 30px;
+            padding: 20px;
             width: 600px;
             font-size: .8em;
-            font-family: "Poppins";
+            font-family: var(--font-text);
         }
 
         h1 > span{
             padding-left: 50px;
             color:  #1696ff;
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
 
         form{
+            padding: 30px;
+            border-radius: 50px;
+            width: 300px;
             display: flex;
-            flex-flow: column wrap;
+            flex-flow: row wrap;
         }
 
         input#user{
             width: 220px;
             border-radius: 50px;
             font-size: 1.4em;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-ai2);
             margin-left: 10px;
             padding: 10px;
         }
@@ -85,7 +109,7 @@
             width: 220px;
             border-radius: 50px;
             font-size: 1.4em;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-ai2);
         }
 
         input#entrar{
@@ -93,7 +117,7 @@
             border-radius: 50px;
             color: white;
             font-size: 1.4em;
-            font-family: "Poppins";
+            font-family: var(--font-ai);
             cursor: pointer;
             margin: 15px;
             padding: 10px;
@@ -101,23 +125,30 @@
         }
 
 
-        img{
+        #Gif-Header{
             cursor: pointer;
-            width: 250px;
+            width: 300px;
             border-radius: 20px;
-            margin-left: 100px;
+            margin-left: 50px;
+            
         }
 
+       
+
         p > span{
+            font-family: var(--font-ai);
             color: #d3e4fa;
             font-weight: 500;
             font-size: 1.2em;
         }
 
+
+
         @media screen and (max-width: 1000px) {
 
         body{
             background-size: cover;
+            background-image: url('imagens/PurpleGradient.jpg');
         }
 
         header{
@@ -126,13 +157,18 @@
 
 
         section{
-            flex-flow: column wrap;
-            padding: 20px;
+            flex-flow: row wrap;
+            padding: 10px;
+        }
+
+        #Gif-Header{
+            width: 400px;
+            padding: 5px;
         }
 
         section > h1{
             padding: 10px;
-            font-size: 1.4em;
+            font-size: 1.2em;
             flex-flow: column wrap;
         }
 
@@ -155,7 +191,8 @@
 <body >
    <header class="flex p-2 justify-between">
 
-    <img src="imagens/Meta-AI.gif" alt="">
+    <img src="imagens/Meta-AI.gif" alt="" id="Gif-Header">
+
 
         <nav class="flex gap-5  p-10">
 
@@ -187,15 +224,23 @@
    </header>
 
    <section class=" flex flex-wrap flex-col">
-        <h1>As 
-            Inteligências artificiais são boas <span>mas nem sempre dão respostas certas...</span></h1>
 
-            <p>É hipocrisia dizer que não se deve usar IA's, já que nós recomendamos algumas neste trabalho. mesmo assim, elas podem errar. Isso acontece porque elas funcionam com base em padrões aprendidos durante o treinamento delas, gerando respostas por probabilidade e não porque “acreditam” em algo, porque elas não tem opinião propia, são tipo uma "Maria vai com as outras". Curiosidade inútil mas pelo menos creio eu que você fique mais atento(a).
-            quase esqueci de colocar os creditos;
-            trabalho sobre inteligência artificial feito por: <br>
-            <span>Gabriel A.,</span> <span>Pedro Augusto,</span> <span>Kauã Rocha,</span> <span>e Nicoly Massucatti.</span>
-            </p>
+<section class="secao-principal">
+    
+            <h1>As
+                Inteligências artificiais são boas <span>mas nem sempre dão respostas certas... <span id="name"></span></h1>
+    
+            <!--
+                <img src="imagens/Gemini.webp" alt="" id="Gif-Principal">
+            -->
 
+                <p>É hipocrisia dizer que não se deve usar IA's, já que nós recomendamos algumas neste trabalho. mesmo assim, elas podem errar. Isso acontece porque elas funcionam com base em padrões aprendidos durante o treinamento delas, gerando respostas por probabilidade e não porque “acreditam” em algo, porque elas não tem opinião propia, são tipo uma "Maria vai com as outras". Curiosidade inútil mas pelo menos creio eu que você fique mais atento(a).
+                quase esqueci de colocar os creditos;
+                trabalho sobre inteligência artificial feito por: <br>
+                <span>Gabriel A.,</span> <span>Pedro Augusto,</span> <span>Kauã Rocha,</span> <span>e Nicoly Massucatti.</span>
+                </p>
+    
+</section>
 
 <form action="index.js" method="post">
         <input type="text" name="user" id="user" required minlength="3" maxlength="20" placeholder="Username">
@@ -204,10 +249,11 @@
 
         <input type="submit" value="Entrar" id="entrar">
 </form>
+
    </section>
 
 <!--
-   <section>
+   <section id="secao-iframe">
         <article>
             <article>
                 <iframe src="AnalisesAI_ensinoMédio.pdf" frameborder="0" width="100%" height="900px"></iframe>
@@ -215,5 +261,18 @@
         </article>
    </section>
 -->
+
+<script>
+    const user = document.querySelector('input#user')
+    let name = document.querySelector('span#name')
+
+    const btn = document.querySelector('input#senha')
+
+if (user!= '' || user != undefined || user != null){
+btn.addEventListener('click', () => {
+        name.innerText = `${user.value}`
+    
+})} return 'Credenciais invalidos'
+</script>
 </body>
 </html>
