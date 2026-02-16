@@ -218,6 +218,8 @@
                 Reddit
             </a>
 
+            <input type="search" name="pesq" id="pesq" class="h-10 rounded-xl p-2 m-2">
+
             <a href="#" class="text-white rounded-xl hover:text-blue-200 bg-blue-300"><i class="fa-solid fa-magnifying-glass"></i></a>
 
         </nav>
@@ -263,12 +265,17 @@
 -->
 
 <script>
+    const relacionados = ['O que é uma IA?',
+                          'Como funciona uma IA?',
+                          'Qual IA usar?',
+    ];
+
     const user = document.querySelector('input#user')
     let name = document.querySelector('span#name')
 
     const btn = document.querySelector('input#senha')
 
-if (user!= '' || user != undefined || user != null){
+if (user != ''){
 btn.addEventListener('click', () => {
         name.innerText = `${user.value}`
     
