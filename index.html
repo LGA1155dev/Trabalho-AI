@@ -272,13 +272,15 @@
     const user = document.querySelector('input#user')
     let name = document.querySelector('span#name')
 
-    const btn = document.querySelector('input#senha')
+    const senha = document.querySelector('input#senha')
 
-if (user != ''){
-btn.addEventListener('click', () => {
-        name.innerText = `${user.value}`
-    
-})} return 'Credenciais invalidos'
+    const btn = document.querySelector('input#entrar')
+
+    btn.addEventListener('click', () => {
+     
+    name.textContent = `${user.value}`;
+   
+})
 </script>
 </body>
 </html>
