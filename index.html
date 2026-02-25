@@ -238,7 +238,7 @@
                 <p>É hipocrisia dizer que não se deve usar IA's, já que nós recomendamos algumas neste trabalho. mesmo assim, elas podem errar. Isso acontece porque elas funcionam com base em padrões aprendidos durante o treinamento delas, gerando respostas por probabilidade e não porque “acreditam” em algo, porque elas não tem opinião propia, são tipo uma "Maria vai com as outras". Curiosidade inútil mas pelo menos creio eu que você fique mais atento(a).
                 quase esqueci de colocar os creditos;
                 trabalho sobre inteligência artificial feito por: <br>
-                <span>Gabriel A.,</span> <span>Pedro Augusto,</span> <span>Kauã Rocha,</span> <span>e Nicoly Massucatti.</span> <span>Yasmin Xachier</span>
+                <span>Gabriel A.,</span> <span>Pedro Augusto,</span> <span>Kauã Rocha,</span> <span>e Nicoly Massucatti.</span> <span>Yasmin Xavier</span>
                 </p>
     
 </section>
@@ -272,13 +272,15 @@
     const user = document.querySelector('input#user')
     let name = document.querySelector('span#name')
 
-    const btn = document.querySelector('input#senha')
+    const senha = document.querySelector('input#senha')
 
-if (user != ''){
-btn.addEventListener('click', () => {
-        name.innerText = `${user.value}`
-    
-})} return 'Credenciais invalidos'
+    const btn = document.querySelector('input#entrar')
+
+    btn.addEventListener('click', () => {
+     
+    name.textContent = `${user.value}`;
+   
+})
 </script>
 </body>
 </html>
