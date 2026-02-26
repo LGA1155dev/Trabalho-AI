@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('../imagens/gradient.webp');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+:root{
+    --font-tech: "Orbitron";
+}
+
+body{
+    background-image: url("../imagens/gradient-blue.jpg");
+
+}
+
+
+header{
+
+    & h1{
+        color: #2facff;
+        font-family: var(--font-tech);
+        text-align: center;
+    }
+}
+
+main{
+    width: 100%;
+
+
+    & img{
+        width: 100px;
+    }
+}
+
+section.comparar{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+img{
+    cursor: pointer;
+}
+
+ul{
+    margin: 20px;
+
+}
