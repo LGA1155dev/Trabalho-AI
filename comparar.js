@@ -26,5 +26,11 @@ copilot.addEventListener('click', () => {
 
 chatgpt.addEventListener('click', () => {
     let chat = document.createElement('img')
-    chat.str
+    document.getElementById('chat').src = '../imagens/logo-chatgpt.png'
+    ul.appendChild(chat)
 })
+
+
+
+
+

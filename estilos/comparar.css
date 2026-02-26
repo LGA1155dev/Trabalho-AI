@@ -14,7 +14,6 @@ body{
 
 
 header{
-    border: 1px solid red;
 
     & h1{
         color: #2facff;
@@ -24,7 +23,6 @@ header{
 }
 
 main{
-    border: 1px solid red;
     width: 100%;
 
 
