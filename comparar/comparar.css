@@ -23,10 +23,17 @@ body{
 header{
 
     & h1{
-        color: #2facff;
+        color: #5fb0e6;
         font-family: var(--font-tech);
         text-align: center;
         margin: 30px;
+    }
+
+    & h2{
+        color: #accff7;
+        font-family: var(--font-tech);
+        text-align: center;
+        margin: 10px;
     }
 }
 
@@ -38,7 +45,7 @@ main{
 
 
     & img{
-        width: 100px;
+        width: 150px;
     }
 }
 
@@ -59,7 +66,7 @@ div.table-cards{
     height: 500px;
     border-radius: 20px;
 
-    & .card-1{
+    & .card_1{
         font-family: var(--font-tech);
         display: flex;
         align-items: center;
@@ -67,13 +74,10 @@ div.table-cards{
         width: 250px;
         height: 90%;
         background-color: #b3b3b3;
-        background-image: url('');
-        background-size: cover;
-        background-position: center;
         border-radius: 10px;
     }
 
-    & .card-2{
+    & .card_2{
         font-family: var(--font-tech);
         display: flex;
         align-items: center;
@@ -81,9 +85,6 @@ div.table-cards{
         width: 250px;
         height: 90%;
         background-color: #b3b3b3;
-        background-image: url('');
-        background-size: cover;
-        background-position: center;
         border-radius: 10px;
     }
 }
