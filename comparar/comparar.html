@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="comparar.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Battle Arena</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="comparar.css">
 </head>
+
 <body>
-    <header>
-        <h1>Qual AI é melhor?</h1>
 
-        <h2>Arraste as IA's até o quadro e veja qual é melhor!</h2>
-    </header>
-    <main>
+<header>
+<nav>
+<a href="#">Home</a>
+<a href="#">Github</a>
+<a href="#">Docs</a>
+</nav>
 
-        <section class="comparar">
+<h1>AI BATTLE ARENA</h1>
+<p>Arraste duas IAs para a arena e confirme o duelo</p>
+</header>
 
-            <img src="../imagens/copilot-logo.png" alt="logo do copilot" id="copilot">
+<main>
 
-            <img src="../imagens/logo-chatgpt.png" alt="logo do chat gpt" id="chatgpt">
+<section class="arena-selection">
+<h2>Escolha sua IA</h2>
 
-            <img src="../imagens/logo-gemini.png" alt="logo do gemini" id="gemini">
+<div class="ia-list">
+<img src="../imagens/copilot-logo.png" id="copilot" draggable="true">
+<img src="../imagens/logo-chatgpt.png" id="chatgpt" draggable="true">
+<img src="../imagens/logo-gemini.png" id="gemini" draggable="true">
+<img src="../imagens/meta-ai-logo.png" id="meta" draggable="true">
+<img src="../imagens/deepseek-logo.png" id="deepseek" draggable="true">
+</div>
+</section>
 
-            <img src="../imagens/meta-ai-logo.png" alt="logo da meta ai" id="meta">
+<section class="battle-zone">
 
-            <img src="../imagens/deepseek-logo.png" alt="">
+<div class="card drop-zone" id="slot1">
+<p>Arraste aqui</p>
+<div class="comparacao"></div>
+</div>
 
-        </section>
+<div class="versus-glow">VS</div>
 
-        <!--<section class="resultados">
-            <ul class="IA">
-                <img src="" alt="" id="cop">
-                <img src="" alt="" id="chat">
-                <img src="" alt="" id="gemini">
-                <img src="" alt="" id="meta">
-                <img src="" alt="" id="deepseek">
-            </ul>
-        </section>
-    -->
+<div class="card drop-zone" id="slot2">
+<p>Arraste aqui</p>
+<div class="comparacao"></div>
+</div>
 
-    <div class="table-cards">
-            <div class="card_1">
-                add to card
-            </div>
-            <div class="versus">
-                <img src="../imagens/versus3.png" alt="" id="img-versus">
-            </div>
-            <div class="card_2">
-                add to card
-            </div>
-            <div class="results">
+</section>
 
-            </div>
-        </div>
+<div class="center">
+<button id="confirmar" disabled>CONFIRMAR DUELO</button>
+</div>
 
-    </main>
+<section class="resultado-final" id="resultadoFinal"></section>
 
-    <script src="comparar.js"></script>
+</main>
+
+<script src="comparar.js"></script>
 </body>
 </html>
