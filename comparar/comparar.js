@@ -1,140 +1,104 @@
-const categoriasOrdem = [
-"imagens",
-"explicacao",
-"tarefas",
-"resumo",
-"trabalhos",
-"corrigir_textos"
-]
+const categorias=["IMAGENS","EXPLICAÇÃO","TAREFAS","RESUMO","TRABALHOS","CORRIGIR_TEXTOS"]
 
-const estado = {
-slot1:null,
-slot2:null
+const ias={
+copilot:{nome:"Copilot",img:"../imagens/copilot-logo.png",notas:[6,9,9,8,8,9]},
+chatgpt:{nome:"ChatGPT",img:"../imagens/logo-chatgpt.png",notas:[8,8,9,8,8,9]},
+gemini:{nome:"Gemini",img:"../imagens/logo-gemini.png",notas:[10,9,9,9,8,7]},
+meta:{nome:"Meta AI",img:"../imagens/meta-ai-logo.png",notas:[6,8,7,8,6,7]},
+deepseek:{nome:"DeepSeek",img:"../imagens/deepseek-logo.png",notas:[7,7,8,7,9,8]}
 }
 
-const imagensIA = document.querySelectorAll(".ia-list img")
-const slot1 = document.getElementById("slot1")
-const slot2 = document.getElementById("slot2")
-const botaoConfirmar = document.getElementById("confirmar")
-const resultadoFinal = document.getElementById("resultadoFinal")
+const imagens=document.querySelectorAll(".ia-list img")
+const slots=document.querySelectorAll(".drop-zone")
+const botao=document.getElementById("confirmar")
+const resultado=document.getElementById("resultadoFinal")
 
-const ias = {
-copilot:{nome:"Copilot",gif:"../imagens/copilot-logo.png",notas:{imagens:6,explicacao:9,tarefas:9,resumo:8,trabalhos:8,corrigir_textos:9}},
-chatgpt:{nome:"ChatGPT",gif:"../imagens/logo-chatgpt.png",notas:{imagens:8,explicacao:8,tarefas:9,resumo:8,trabalhos:8,corrigir_textos:9}},
-gemini:{nome:"Gemini",gif:"../imagens/logo-gemini.png",notas:{imagens:10,explicacao:9,tarefas:9,resumo:9,trabalhos:8,corrigir_textos:7}},
-meta:{nome:"Meta AI",gif:"../imagens/meta-ai-logo.png",notas:{imagens:6,explicacao:8,tarefas:7,resumo:8,trabalhos:6,corrigir_textos:7}},
-deepseek:{nome:"DeepSeek",gif:"../imagens/deepseek-logo.png",notas:{imagens:7,explicacao:7,tarefas:8,resumo:7,trabalhos:9,corrigir_textos:8}}
+let estado={slot1:null,slot2:null}
+
+/* ================= MOBILE CLICK ================= */
+
+imagens.forEach(img=>{
+img.addEventListener("click",()=>{
+const id=img.dataset.id
+
+if(!estado.slot1){
+colocar(slots[0],id)
+}else if(!estado.slot2){
+colocar(slots[1],id)
 }
-
-imagensIA.forEach(img=>{
-img.addEventListener("dragstart",e=>{
-e.dataTransfer.setData("text/plain",img.id)
 })
 })
 
-;[slot1,slot2].forEach(slot=>{
-slot.addEventListener("dragover",e=>{
+/* ================= DESKTOP DRAG ================= */
+
+imagens.forEach(img=>{
+img.setAttribute("draggable",true)
+
+img.addEventListener("dragstart",(e)=>{
+e.dataTransfer.setData("id",img.dataset.id)
+})
+})
+
+slots.forEach(slot=>{
+slot.addEventListener("dragover",(e)=>e.preventDefault())
+
+slot.addEventListener("drop",(e)=>{
 e.preventDefault()
-slot.classList.add("drag-over")
-})
-slot.addEventListener("dragleave",()=>{
-slot.classList.remove("drag-over")
-})
-slot.addEventListener("drop",e=>{
-e.preventDefault()
-slot.classList.remove("drag-over")
-const idIA=e.dataTransfer.getData("text/plain")
-adicionarIA(slot,idIA)
+const id=e.dataTransfer.getData("id")
+colocar(slot,id)
 })
 })
 
-function adicionarIA(slot,idIA){
+function colocar(slot,id){
 
-if(!ias[idIA])return
-if(slot.id==="slot1"&&estado.slot2===idIA)return
-if(slot.id==="slot2"&&estado.slot1===idIA)return
+const ia=ias[id]
 
-resultadoFinal.innerHTML=""
-slot1.classList.remove("campeao")
-slot2.classList.remove("campeao")
-
-if(slot.id==="slot1")estado.slot1=idIA
-else estado.slot2=idIA
-
-renderSlot(slot,idIA)
-verificarBotao()
-}
-
-function renderSlot(slot,idIA){
-const ia=ias[idIA]
-slot.innerHTML=`
-<img src="${ia.gif}" class="ia-avatar">
+slot.innerHTML=`<img src="${ia.img}">
 <h3>${ia.nome}</h3>
-<div class="comparacao"></div>
-`
+<div class="comparacao"></div>`
+
+if(slot.id==="slot1") estado.slot1=id
+else estado.slot2=id
+
+botao.disabled=!(estado.slot1&&estado.slot2)
 }
 
-function verificarBotao(){
-botaoConfirmar.disabled=!(estado.slot1&&estado.slot2)
-}
+botao.addEventListener("click",comparar)
 
-botaoConfirmar.addEventListener("click",iniciarComparacao)
+function comparar(){
 
-function iniciarComparacao(){
+let p1=0,p2=0
+const c1=slots[0].querySelector(".comparacao")
+const c2=slots[1].querySelector(".comparacao")
 
-let pontos1=0
-let pontos2=0
+c1.innerHTML=""
+c2.innerHTML=""
+resultado.innerHTML=""
 
-const comp1=slot1.querySelector(".comparacao")
-const comp2=slot2.querySelector(".comparacao")
+categorias.forEach((cat,i)=>{
+let v1=ias[estado.slot1].notas[i]
+let v2=ias[estado.slot2].notas[i]
 
-comp1.innerHTML=""
-comp2.innerHTML=""
-resultadoFinal.innerHTML=""
+let classe1="",classe2=""
+let simb1="⚖",simb2="⚖"
 
-categoriasOrdem.forEach(cat=>{
+if(v1>v2){p1++;classe1="vencedor";classe2="perdedor";simb1="✔";simb2="✖"}
+else if(v2>v1){p2++;classe2="vencedor";classe1="perdedor";simb2="✔";simb1="✖"}
 
-const v1=ias[estado.slot1].notas[cat]
-const v2=ias[estado.slot2].notas[cat]
-
-let simbolo1="⚖"
-let simbolo2="⚖"
-let classe1=""
-let classe2=""
-
-if(v1>v2){simbolo1="✔";simbolo2="✖";classe1="vencedor";classe2="perdedor";pontos1++}
-else if(v2>v1){simbolo2="✔";simbolo1="✖";classe2="vencedor";classe1="perdedor";pontos2++}
-
-comp1.innerHTML+=criarLinha(cat,v1,simbolo1,classe1)
-comp2.innerHTML+=criarLinha(cat,v2,simbolo2,classe2)
+c1.innerHTML+=`<div class="linha ${classe1}">${cat} ${v1} ${simb1}</div>`
+c2.innerHTML+=`<div class="linha ${classe2}">${cat} ${v2} ${simb2}</div>`
 })
 
-destacarVencedor(pontos1,pontos2)
-}
-
-function criarLinha(cat,valor,simbolo,classe){
-return`
-<div class="linha ${classe}">
-<span>${cat.toUpperCase()}</span>
-<div class="barra-container">
-<div class="barra" style="width:${valor*10}%"></div>
-</div>
-<span>${valor} ${simbolo}</span>
-</div>
-`
-}
-
-function destacarVencedor(p1,p2){
+slots[0].classList.remove("campeao")
+slots[1].classList.remove("campeao")
 
 if(p1>p2){
-slot1.classList.add("campeao")
-resultadoFinal.innerHTML=`<h2>${ias[estado.slot1].nome} VENCEU 🏆</h2>`
-}
-else if(p2>p1){
-slot2.classList.add("campeao")
-resultadoFinal.innerHTML=`<h2>${ias[estado.slot2].nome} VENCEU 🏆</h2>`
-}
-else{
-resultadoFinal.innerHTML=`<h2>EMPATE ⚖</h2>`
+slots[0].classList.add("campeao")
+resultado.innerHTML=`🏆 ${ias[estado.slot1].nome} VENCEU`
+}else if(p2>p1){
+slots[1].classList.add("campeao")
+resultado.innerHTML=`🏆 ${ias[estado.slot2].nome} VENCEU`
+}else{
+resultado.innerHTML="⚖ EMPATE"
 }
 }
