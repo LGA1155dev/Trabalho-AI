@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="p-0 m-0 box-border">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/style.css">
+    <title>Trabalho AI</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&family=Share+Tech+Mono&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        
+
+        @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&family=Share+Tech+Mono&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Audiowide&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&family=Share+Tech+Mono&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        :root{
+            --font-ai: "Orbitron";
+            --font-text: "Poppins";
+            --font-ai2: "Audiowide"
+        }
+
+        body{
+            background-image: url('../imagens/city.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+
+        a{
+            font-family: "Poppins";
+        }
+
+
+        nav{
+            display: flex;
+        }
+
+        a{
+            font-family: var(--font-ai);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 90px;
+            font-size: .9em;
+        }
+
+        
+
+        section > h1{
+            width: 100%;
+            font-family: var(--font-ai2);
+            color:  #ffffff;
+            font-size: 2.7rem;
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        section{
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: row wrap;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        #secao-principal{
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+        }
+
+        section > p{
+            color: white;
+            padding: 20px;
+            width: 400px;
+            font-size: .7em;
+            font-family: var(--font-text);
+        }
+
+        h1 > span{
+            padding-left: 50px;
+            color:  #1696ff;
+            font-size: 2rem;
+        }
+
+        form{
+            padding: 30px;
+            border-radius: 50px;
+            width: 300px;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        input#user{
+            width: 220px;
+            border-radius: 50px;
+            font-size: 1.4em;
+            font-family: var(--font-ai2);
+            margin-left: 10px;
+            padding: 10px;
+        }
+
+        input#senha{
+            margin: 15px;
+            padding: 10px;
+            width: 220px;
+            border-radius: 50px;
+            font-size: 1.4em;
+            font-family: var(--font-ai2);
+        }
+
+        input#entrar{
+            background-image: linear-gradient(to right, #1ba4ff, #915ada, #7a49ff);
+            border-radius: 50px;
+            color: white;
+            font-size: 1.4em;
+            font-family: var(--font-ai);
+            cursor: pointer;
+            margin: 15px;
+            padding: 10px;
+            width: 100px;
+        }
+
+
+        #Gif-Header{
+            cursor: pointer;
+            width: 300px;
+            border-radius: 20px;
+            margin-left: 50px;
+            
+        }
+
+       
+
+        p > span{
+            font-family: var(--font-ai);
+            color: #d3e4fa;
+            font-weight: 500;
+            font-size: 1.2em;
+        }
+
+
+
+        @media screen and (max-width: 1000px) {
+
+        body{
+            background-size: cover;
+        }
+
+        header{
+            flex-direction: column;
+        }
+
+
+        section{
+            flex-flow: row wrap;
+            padding: 10px;
+        }
+
+        section.secao-principal{
+            width: 100%;
+        }
+
+        #Gif-Header{
+            width: 400px;
+            padding: 5px;
+        }
+
+        section > h1{
+            padding: 10px;
+            font-size: 1.2em;
+            width: 100%;
+            flex-flow: column wrap;
+        }
+
+        section > h1 > span{
+            font-size: .8em;
+        }
+
+        section > p{
+            width: 300px;
+            font-size: .6em;
+        }
+
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/170c208023.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-imagens/city.webp">
+   <header class="flex p-2 justify-between">
+
+    <img src="imagens/Meta-AI.gif" alt="" id="Gif-Header">
+
+
+        <nav class="flex gap-5  p-10">
+
+
+            <a href="#" class="text-white p-2 rounded-sm hover:text-blue-200">Home</a>
+
+            <a href="dashboard.html"
+            target="_blank"
+             class="text-white p-2 rounded-sm hover:text-blue-200">
+                DashBoards
+            </a>
+
+            <a href="https://github.com/LGA1155dev"
+            target="_blank" 
+            class="text-white p-2 rounded-sm hover:text-blue-200">
+                GitHub
+            </a>
+
+            <a href="comparar/comparar.html"
+            target="_blank"
+             class="text-white p-2 
+            rounded-sm hover:text-blue-200">
+                Comparar
+        </a>
+
+        <a href="../texto-chatgpt/texto-gpt.html" target="_blank" class="text-white p-2 rounded-sm hover:text-blue-200">Texto</a>
+
+            
+
+            <a href="#" class="text-white rounded-2xl hover:text-blue-200 bg-blue-300"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+        </nav>
+   </header>
+
+   <section class=" flex flex-wrap flex-col">
+
+<section class="secao-principal">
+    
+            <h1>As
+                Inteligências artificiais são boas<span>mas nem sempre dão respostas certas... <span id="name"></span></h1>
+    
+            <!--
+                <img src="imagens/Gemini.webp" alt="" id="Gif-Principal">
+            -->
+
+                <p>É hipocrisia dizer que não se deve usar IA's, já que nós recomendamos algumas neste trabalho. mesmo assim, elas podem errar. Isso acontece porque elas funcionam com base em padrões aprendidos durante o treinamento delas, gerando respostas por probabilidade e não porque “acreditam” em algo, porque elas não tem opinião propia, são tipo uma "Maria vai com as outras". Curiosidade inútil mas pelo menos creio eu que você fique mais atento(a).
+                quase esqueci de colocar os creditos;
+                trabalho sobre inteligência artificial feito por: <br>
+                <span>Gabriel A.,</span> <span>Pedro Augusto,</span> <span>Kauã Rocha,</span> <span>e Nicolly Massucatti.</span> <span>Yasmin Xavier</span>
+                </p>
+    
+</section>
+
+<form action="index.py" method="post">
+        <input type="text" name="user" id="user" required minlength="3" maxlength="20" placeholder="Username">
+
+        <input type="password" name="senha" id="senha" required minlength="3" maxlength="20" placeholder="Senha">
+
+        <input type="submit" value="Entrar" id="entrar">
+</form>
+
+   </section>
+
+<!--
+   <section id="secao-iframe">
+        <article>
+            <article>
+                <iframe src="AnalisesAI_ensinoMédio.pdf" frameborder="0" width="100%" height="900px"></iframe>
+            </article>
+        </article>
+   </section>
+-->
+
+<script>
+    const relacionados = ['O que é uma IA?',
+                          'Como funciona uma IA?',
+                          'Qual IA usar?',
+    ];
+
+    const user = document.querySelector('input#user')
+    let name = document.querySelector('span#name')
+
+    const senha = document.querySelector('input#senha')
+
+    const btn = document.querySelector('input#entrar')
+
+    btn.addEventListener('click', () => {
+     
+    name.textContent = `${user.value}`;
+
+
+   
+})
+</script>
+</body>
+</html>

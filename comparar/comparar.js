@@ -1,12 +1,53 @@
-const categorias=["IMAGENS","EXPLICAÇÃO","TAREFAS","RESUMO","TRABALHOS","CORRIGIR_TEXTOS"]
+const categorias=["IMAGENS",
+                  "EXPLICAÇÃO",
+                  "TAREFAS",
+                  "RESUMO",
+                  "TRABALHOS",
+                  "CORRIGIR_TEXTOS"
+                ]
 
 const ias={
-copilot:{nome:"Copilot",img:"../imagens/copilot-logo.png",notas:[6,9,9,8,8,9]},
-chatgpt:{nome:"ChatGPT",img:"../imagens/logo-chatgpt.png",notas:[8,8,9,8,8,9]},
-gemini:{nome:"Gemini",img:"../imagens/logo-gemini.png",notas:[10,9,9,9,8,7]},
-meta:{nome:"Meta AI",img:"../imagens/meta-ai-logo.png",notas:[6,8,7,8,6,7]},
-deepseek:{nome:"DeepSeek",img:"../imagens/deepseek-logo.png",notas:[7,7,8,7,9,8]}
+
+//<==================== IA's ====================>
+copilot:
+{
+    nome:"Copilot",
+    img:"../imagens/copilot-logo.png",
+    notas: [6,9,9,8,8,9]
+},
+
+chatgpt:
+{
+    nome:"ChatGPT",
+    img:"../imagens/logo-chatgpt.png",
+    notas:[8,8,9,8,8,9]
+},
+
+gemini:
+{
+    nome:"Gemini",
+    img:"../imagens/logo-gemini.png",
+    notas:[10,9,9,9,8,7]
+},
+
+meta:
+{
+    nome:"Meta AI",
+    img:"../imagens/meta-ai-logo.png",
+    notas:[6,8,7,8,6,7]
+},
+
+deepseek:
+{
+    nome:"DeepSeek",
+    img:"../imagens/deepseek-logo.png",
+    notas:[7,7,8,7,9,8]
 }
+
+}
+//<==================== IA's ====================>
+
+
 
 const imagens=document.querySelectorAll(".ia-list img")
 const slots=document.querySelectorAll(".drop-zone")
@@ -15,21 +56,37 @@ const resultado=document.getElementById("resultadoFinal")
 
 let estado={slot1:null,slot2:null}
 
-/* ================= MOBILE CLICK ================= */
+
+
+/* <================= Click do mobile =================> */
 
 imagens.forEach(img=>{
-img.addEventListener("click",()=>{
-const id=img.dataset.id
+
+img.addEventListener("click", () =>{
+
+const id = img.dataset.id
 
 if(!estado.slot1){
+
 colocar(slots[0],id)
+
 }else if(!estado.slot2){
+
 colocar(slots[1],id)
 }
-})
-})
 
-/* ================= DESKTOP DRAG ================= */
+})
+})
+/* <================= Click do mobile =================> */
+
+
+
+
+
+
+
+
+/* <================= Arrastar pelo computador =================> */
 
 imagens.forEach(img=>{
 img.setAttribute("draggable",true)
@@ -94,10 +151,10 @@ slots[1].classList.remove("campeao")
 
 if(p1>p2){
 slots[0].classList.add("campeao")
-resultado.innerHTML=`🏆 ${ias[estado.slot1].nome} VENCEU`
+resultado.innerHTML=`🏆 ${ias[estado.slot1].nome} Ganhou!`
 }else if(p2>p1){
 slots[1].classList.add("campeao")
-resultado.innerHTML=`🏆 ${ias[estado.slot2].nome} VENCEU`
+resultado.innerHTML=`🏆 ${ias[estado.slot2].nome} Ganhou!`
 }else{
 resultado.innerHTML="⚖ EMPATE"
 }

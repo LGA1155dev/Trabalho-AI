@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap');
+
+:root{
+    --font1: "Oxanium";
+    --font-text: "Roboto";
+    --font-tech: "Orbitron";
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #100825;
+    background-attachment: fixed;
+}
+
+header{
+    position: relative;
+    height: 200px;
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.snowfall{
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    overflow: hidden;
+
+}
+
+.snowfake{
+    --small: 2px;
+    --medium: 2px;
+    width: var(--small);
+    height: var(--small);
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: snow 6s linear infinite,
+        wind 15s ease-in-out infinite;
+    top: 5%;
+    left: 5%;
+}
+
+.snowfake:nth-child(2n+3){
+    width: var(--medium);
+    height: var(--medium);
+}
+
+.snowfake:nth-child(1){
+    left: 2%;
+    animation-delay: 1s;
+}
+
+.snowfake:nth-child(2){
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.snowfake:nth-child(3){
+    left: 30%;
+    animation-delay: 3s;
+}
+
+.snowfake:nth-child(4){
+    left: 40%;
+    animation-delay: 4s;
+}
+
+.snowfake:nth-child(5){
+    left: 50%;
+    animation-delay: 5s;
+}
+
+.snowfake:nth-child(6){
+    left: 60%;
+    animation-delay: 6s;
+}
+
+.snowfake:nth-child(7){
+    left: 70%;
+    animation-delay: 4s;
+}
+
+.snowfake:nth-child(8){
+    left: 80%;
+    animation-delay: 5s;
+}
+
+.snowfake:nth-child(9){
+    left: 90%;
+    animation-delay: 6s;
+}
+
+.snowfake:nth-child(10){
+    left: 100%;
+    animation-delay: 5s;
+}
+
+@keyframes snow{
+    100%{
+        top: 100%;
+    }
+}
+
+@keyframes wind{
+    50%{
+        transform: translateX(60px);
+    }
+}
+
+
+nav{
+    position: sticky;
+    top: -2px;
+    left: 0px;
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    background-image: linear-gradient(to right, #1e395c, #0e1b38, #0c1130);
+    border: 3px solid #309ed1;
+    box-shadow: 2px 2px 12px 2px #0f78a1;
+    gap: 20px;
+}
+
+nav > a{
+    color: white;
+    text-decoration: none;
+    font-family: var(--font1);
+    font-size: 1.5em;
+
+}
+
+nav > a:hover{
+    transition:  color .7s, text-shadow .5s;
+    text-shadow: 1px 1px 5px #1b435e;
+    color: #23a7b8;
+}
+
+main{
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 100px;
+    width: 100%;
+}
+
+main > section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+
+    width: 60%;
+}
+
+main > .secao-texto > p{
+    font-size: 1.3em;
+    color: white;
+    font-family: var(--font-text);
+    margin: 30px;
+}
+
+.secao-texto > p > span{
+    color: #237cb8;
+    background-image: linear-gradient(120deg, hsl(273, 70%, 70%), hsl(281, 59%, 26%));
+    font-size: 1.2em;
+    font-weight: 600;
+    color: transparent;
+    background-clip: text;
+    -webkit-text-stroke-color: #000;
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: transparent;
+    font-family: var(--font-tech);
+
+}
+
+
+.secao-texto > p > span.nome{
+    background-image: linear-gradient(120deg, hsl(263, 55%, 62%), hsl(290, 48%, 58%),  hsl(283, 45%, 45%));
+    text-shadow: 1px 1px 15px hsl(229, 59%, 18%);
+}
+
+main > .secao-gifs{
+   width: 30%;
+}
+
+main > .secao-gifs > img{
+    width: 70%;
+    border-radius: 20px;
+}
