@@ -86,7 +86,7 @@ header{
 
 .snowfake:nth-child(6){
     left: 60%;
-    animation-delay: 6s;
+    animation-delay: 5s;
 }
 
 .snowfake:nth-child(7){
@@ -96,17 +96,17 @@ header{
 
 .snowfake:nth-child(8){
     left: 80%;
-    animation-delay: 5s;
+    animation-delay: 2s;
 }
 
 .snowfake:nth-child(9){
     left: 90%;
-    animation-delay: 6s;
+    animation-delay: 5s;
 }
 
 .snowfake:nth-child(10){
     left: 100%;
-    animation-delay: 5s;
+    animation-delay: 6s;
 }
 
 @keyframes snow{
@@ -139,7 +139,7 @@ nav > a{
     color: white;
     text-decoration: none;
     font-family: var(--font1);
-    font-size: 1.5em;
+    font-size: 1.2em;
 
 }
 
@@ -151,18 +151,20 @@ nav > a:hover{
 
 main{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row ;
+    align-items: center;
+    justify-content: center;
     margin-top: 100px;
     width: 100%;
 }
 
-main > section{
+main > .secao-texto{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row wrap;
-
     width: 60%;
+
 }
 
 main > .secao-texto > p{
@@ -192,11 +194,13 @@ main > .secao-texto > p{
 }
 
 main > .secao-gifs{
-   width: 40%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+   width: 50%;
 }
 
 main > .secao-gifs > img{
-    width: 50%;
-    height: 30%;
+    width: 60%;
     border-radius: 20px;
 }

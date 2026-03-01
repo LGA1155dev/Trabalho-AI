@@ -1,0 +1,20 @@
+
+@media screen and (max-width: 768px) {
+    main{
+        flex-flow: row wrap;
+    }
+
+    main > .secao-texto{
+        width: 100%;
+    }
+
+    main > .secao-texto > p{
+        width: 100%;
+    }
+
+    main > .secao-gifs > img{
+        width: 100%;
+    }
+
+
+}
