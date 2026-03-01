@@ -12,9 +12,18 @@
         width: 100%;
     }
 
-    main > .secao-gifs > img{
+    main > .secao-gifs{
+        display: flex;
+        justify-content: center;
         width: 100%;
+        align-items: center;
     }
+
+    main > .secao-gifs > img{
+        width: 60%;
+    }
+
+
 
 
 }
