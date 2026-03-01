@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Duelo de IAs — Arena</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="comparar.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
   <main>
     <section class="arena-selection">
       <h2 class="section-title">Combatentes</h2>
-      <p class="section-hint">Arraste ou toque para escolher duas IAs</p>
+      <p class="section-hint">Arraste ou toque para montar os times que vão se enfrentar</p>
       <div class="ia-list">
         <div class="ia-card" data-id="copilot" draggable="false">
           <div class="ia-img-wrap">
@@ -61,7 +61,15 @@
       </div>
     </section>
 
-    <section class="battle-zone">
+    <section class="arena-modes">
+      <div class="mode-toggle" role="tablist" aria-label="Tipo de duelo">
+        <button class="mode-pill is-active" data-mode="1v1" type="button" aria-selected="true">Duelo 1×1</button>
+        <button class="mode-pill" data-mode="2v2" type="button" aria-selected="false">Duelo 2×2 (times)</button>
+      </div>
+      <p class="mode-hint" id="modeHint">Compare duas IAs lado a lado ou faça um confronto em times de 2×2.</p>
+    </section>
+
+    <section class="battle-zone" data-mode="1v1">
       <div class="card drop-zone" id="slot1">
         <div class="slot-placeholder">
           <span class="slot-icon"></span>
@@ -92,6 +100,54 @@
     <section class="historico" id="historico">
       <h3>Últimos duelos</h3>
       <ul id="historicoLista"></ul>
+    </section>
+
+    <section class="chat-lab" id="chatLab" aria-label="Laboratório de bate-papo com IAs">
+      <header class="chat-lab-header">
+        <h2>Laboratório de bate-papo</h2>
+        <p>Converse em tempo quase real com as IAs selecionadas e observe como cada uma responde à mesma pergunta.</p>
+      </header>
+      <div class="chat-layout">
+        <article class="chat-panel" id="chatPanelLeft">
+          <header class="chat-panel-header">
+            <div class="chat-ia-meta">
+              <div class="chat-ia-avatar" id="chatAvatarLeft"></div>
+              <div class="chat-ia-text">
+                <span class="chat-ia-name" id="chatNameLeft">IA da esquerda</span>
+                <span class="chat-ia-tag" id="chatTagLeft">Aguardando seleção…</span>
+              </div>
+            </div>
+            <div class="chat-ia-score" id="chatScoreLeft"></div>
+          </header>
+          <div class="chat-panel-body" id="chatBodyLeft"></div>
+          <div class="typing-indicator" id="typingLeft">
+            <span></span><span></span><span></span>
+          </div>
+        </article>
+
+        <article class="chat-panel" id="chatPanelRight">
+          <header class="chat-panel-header">
+            <div class="chat-ia-meta">
+              <div class="chat-ia-avatar" id="chatAvatarRight"></div>
+              <div class="chat-ia-text">
+                <span class="chat-ia-name" id="chatNameRight">IA da direita</span>
+                <span class="chat-ia-tag" id="chatTagRight">Aguardando seleção…</span>
+              </div>
+            </div>
+            <div class="chat-ia-score" id="chatScoreRight"></div>
+          </header>
+          <div class="chat-panel-body" id="chatBodyRight"></div>
+          <div class="typing-indicator" id="typingRight">
+            <span></span><span></span><span></span>
+          </div>
+        </article>
+      </div>
+
+      <div class="chat-input-row">
+        <input id="chatInput" type="text" placeholder="Faça uma pergunta para comparar as respostas das IAs…" autocomplete="off">
+        <button id="chatSend" type="button">Enviar pergunta</button>
+      </div>
+      <p class="chat-hint">As respostas são simuladas localmente, mas o fluxo de interação foi pensado para ser plugado em APIs reais de IA.</p>
     </section>
   </main>
 
