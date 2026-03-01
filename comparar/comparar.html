@@ -1,65 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Compare as IAs que escolhemos</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="comparar.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Duelo de IAs — Arena</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="comparar.css">
 </head>
-
 <body>
 
-<header>
-<nav>
-<a href="#">Home</a>
-<a href="#">Github</a>
-<a href="#">Docs</a>
-</nav>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="particles-bg" id="particlesBg"></div>
+  <div class="hover-overlay" id="hoverOverlay"></div>
 
-<h1>Duelo de AI's</h1>
-<p>Clique em duas IAs pra vê-las batalhando</p>
-</header>
+  <header class="header-glow">
+    <nav>
+      <a href="../Home-Page/index.html">Home</a>
+      <a href="#">Ranking</a>
+      <a href="#">Histórico</a>
+    </nav>
+    <h1 class="title-pulse">DUELO DE IAs</h1>
+    <p class="subtitle">Arraste as logos para a arena ou toque para selecionar</p>
+  </header>
 
-<main>
+  <main>
+    <section class="arena-selection">
+      <h2 class="section-title">Combatentes</h2>
+      <p class="section-hint">Arraste ou toque para escolher duas IAs</p>
+      <div class="ia-list">
+        <div class="ia-card" data-id="copilot" draggable="false">
+          <div class="ia-img-wrap">
+            <img src="../imagens/copilot-logo.png" alt="Copilot" onerror="this.parentElement.innerHTML='<span class=\'ia-fallback\'>CP</span>'">
+          </div>
+          <span class="ia-label">Copilot</span>
+        </div>
+        <div class="ia-card" data-id="chatgpt" draggable="false">
+          <div class="ia-img-wrap">
+            <img src="../imagens/logo-chatgpt.png" alt="ChatGPT" onerror="this.parentElement.innerHTML='<span class=\'ia-fallback\'>GPT</span>'">
+          </div>
+          <span class="ia-label">ChatGPT</span>
+        </div>
+        <div class="ia-card" data-id="gemini" draggable="false">
+          <div class="ia-img-wrap">
+            <img src="../imagens/logo-gemini.png" alt="Gemini" onerror="this.parentElement.innerHTML='<span class=\'ia-fallback\'>GM</span>'">
+          </div>
+          <span class="ia-label">Gemini</span>
+        </div>
+        <div class="ia-card" data-id="meta" draggable="false">
+          <div class="ia-img-wrap">
+            <img src="../imagens/meta-ai-logo.png" alt="Meta AI" onerror="this.parentElement.innerHTML='<span class=\'ia-fallback\'>MA</span>'">
+          </div>
+          <span class="ia-label">Meta AI</span>
+        </div>
+        <div class="ia-card" data-id="deepseek" draggable="false">
+          <div class="ia-img-wrap">
+            <img src="../imagens/deepseek-logo.png" alt="DeepSeek" onerror="this.parentElement.innerHTML='<span class=\'ia-fallback\'>DS</span>'">
+          </div>
+          <span class="ia-label">DeepSeek</span>
+        </div>
+      </div>
+    </section>
 
-<section class="arena-selection">
-<h2>Escolha sua IA</h2>
+    <section class="battle-zone">
+      <div class="card drop-zone" id="slot1">
+        <div class="slot-placeholder">
+          <span class="slot-icon"></span>
+          <p>Slot 1</p>
+        </div>
+        <div class="card-content"></div>
+      </div>
+      <div class="versus-container">
+        <div class="versus-glow">VS</div>
+        <div class="versus-line"></div>
+      </div>
+      <div class="card drop-zone" id="slot2">
+        <div class="slot-placeholder">
+          <span class="slot-icon"></span>
+          <p>Slot 2</p>
+        </div>
+        <div class="card-content"></div>
+      </div>
+    </section>
 
-<div class="ia-list">
-<img src="../imagens/copilot-logo.png" data-id="copilot">
-<img src="../imagens/logo-chatgpt.png" data-id="chatgpt">
-<img src="../imagens/logo-gemini.png" data-id="gemini">
-<img src="../imagens/meta-ai-logo.png" data-id="meta">
-<img src="../imagens/deepseek-logo.png" data-id="deepseek">
-</div>
-</section>
+    <div class="center">
+      <button id="confirmar" class="btn-duelo" disabled>INICIAR DUELO</button>
+      <button id="aleatorio" class="btn-extra">Duelo aleatório</button>
+      <button id="resetar" class="btn-reset">Nova batalha</button>
+    </div>
 
-<section class="battle-zone">
+    <section class="resultado-final" id="resultadoFinal"></section>
+    <section class="historico" id="historico">
+      <h3>Últimos duelos</h3>
+      <ul id="historicoLista"></ul>
+    </section>
+  </main>
 
-<div class="card drop-zone" id="slot1">
-<p>Arraste aqui</p>
-<div class="comparacao"></div>
-</div>
+  <div class="victory-overlay" id="victoryOverlay">
+    <div class="victory-bg"></div>
+    <div class="victory-content">
+      <div class="victory-crown"></div>
+      <h2 class="victory-title" id="victoryTitle"></h2>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <div class="victory-stats" id="victoryStats"></div>
+      <button class="btn-close-victory" id="closeVictory">Continuar</button>
+    </div>
+    <div class="confetti-canvas" id="confettiCanvas"></div>
+  </div>
 
-<div class="versus-glow">VS</div>
+  <div class="drag-ghost" id="dragGhost"></div>
 
-<div class="card drop-zone" id="slot2">
-<p>Arraste aqui</p>
-<div class="comparacao"></div>
-</div>
-
-</section>
-
-<div class="center">
-<button id="confirmar" disabled>CONFIRMAR DUELO</button>
-</div>
-
-<section class="resultado-final" id="resultadoFinal"></section>
-
-</main>
-
-<script src="comparar.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="comparar.js"></script>
 </body>
 </html>
