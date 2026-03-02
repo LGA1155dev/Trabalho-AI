@@ -200,6 +200,7 @@ body::before {
   flex-wrap: wrap;
 }
 
+
 .ia-card {
   width: clamp(88px, 18vw, 120px);
   padding: 16px;
@@ -667,4 +668,12 @@ body::before {
 
 @media (min-width: 1200px) {
   .card { min-height: 340px; }
+
+.resultado-final{
+text-align:center;
+margin-top:30px;
+font-weight:bold;
+font-size:1.3rem;
+
+}
 }
