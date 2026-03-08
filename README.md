@@ -1,4 +1,4 @@
-<img width="1409" height="769" alt="siteREDEME" src="https://github.com/user-attachments/assets/6e8473aa-aa84-49d0-bc23-6e930b4042e7" />
+<img width="1440" height="900" alt="Home-Page" src="https://github.com/user-attachments/assets/47f0c96d-2d6d-4e59-a7eb-a60e4e20bb7a" />
 
 
 
@@ -8,5 +8,6 @@
 <img width="1440" height="721" alt="dueloAIs" src="https://github.com/user-attachments/assets/7cb9ec77-7571-4faa-8ddb-ce9288ce185c" />
 
 
-<img width="1440" height="724" alt="WannaCry-bot" src="https://github.com/user-attachments/assets/37140545-d679-41ca-b864-cd4f714e9167" />
+<img width="1440" height="900" alt="WannaCry" src="https://github.com/user-attachments/assets/a2e1e9de-0718-46e3-bc1b-263b5a324f30" />
+
 
